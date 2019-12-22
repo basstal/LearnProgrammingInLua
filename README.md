@@ -1,4 +1,4 @@
-# Programming In Lua #
+# ProgrammingInLua #
 
 Programming In Lua 4th Edition
 
