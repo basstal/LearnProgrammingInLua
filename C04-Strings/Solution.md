@@ -1,4 +1,4 @@
-# C04-Solution #
+# Strings #
 
 ## Exercise 4.1 ##
 

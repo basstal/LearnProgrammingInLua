@@ -1,4 +1,4 @@
-# C09-Solution #
+# Closures #
 
 ## Exercise 9.1 ##
 

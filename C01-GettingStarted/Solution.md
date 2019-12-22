@@ -1,5 +1,5 @@
 
-# C01-Solution #
+# GettingStarted #
 
 ## Exercise 1.1 ##
 

@@ -1,4 +1,4 @@
-# C02-Solution #
+# Interlude-TheEightQueenPuzzle #
 
 ## Exercise 2.1 ##
 

@@ -1,4 +1,4 @@
-# C03-Solution #
+# Numbers #
 
 ## Exercise 3.1 ##
 

@@ -19,6 +19,7 @@ A summary of printf format specifiers:
 |%s|a string of characters|
 |%u|unsigned decimal (integer) number|
 |%x|number in hexadecimal (base 16)|
+|%X|number in hexadecimal (base 16) uppercase|
 |%%|print a percent sign|
 |\%|print a percent sign|
 

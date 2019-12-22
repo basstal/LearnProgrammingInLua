@@ -1,4 +1,4 @@
-# C06-Solution #
+# Functions #
 
 ## Exercise 6.1 ##
 

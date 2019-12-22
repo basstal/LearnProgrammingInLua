@@ -14,11 +14,14 @@
 
 ```markdown
 > x = math.pi
-> x - x%0.01                --> 3.14
-> x - x%0.001               --> 3.141
-> math.sin(math.pi / 2)     --> 1.0
-> math.max(10.4, 7, -3, 20) --> 20
-> math.huge                 --> inf
+> x - x % 0.01                  --> 3.14
+> x - x % 0.001                 --> 3.141
+> math.sin(math.pi / 2)         --> 1.0
+> math.max(10.4, 7, -3, 20)     --> 20
+> math.huge                     --> inf
+> angle % (2 * math.pi)         --> normalize any angle to a value in the interval [0, 2#)
+> x ^ 0.5                       --> square root of x
+> x ^ (1 / 3)                   --> cubic root of x
 ```
 
 ## The Mathematical Library ##
