@@ -290,4 +290,4 @@ DerivedData/
 
 ## others
 .vscode
-.code-workspace
+*.code-workspace
