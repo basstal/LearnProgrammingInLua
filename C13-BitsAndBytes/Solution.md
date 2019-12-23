@@ -40,6 +40,8 @@ Implement a bit array in Lua. It should support the following operations:
 
 • testBit(a, n) (returns a Boolean with the value of bit n).
 
+[BitArray.lua](./Resources/BitArray.lua)
+
 ## Exercise 13.7 ##
 
 Suppose we have a binary file with a sequence of records, each one with the following format:
