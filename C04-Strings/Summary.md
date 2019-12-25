@@ -40,6 +40,20 @@ printf special characters:
 
 **string.sub:** The call string.sub(s, i, j) extracts a piece of the string s, from the i-th to the j-th character inclusive.
 
+```markdown
+> s = "[in brackets]"
+> string.sub(s, 2, -2) --> in brackets
+> string.sub(s, 1, 1) --> [
+> string.sub(s, -1, -1) --> ]
+```
+
+```markdown
+> string.rep("abc", 3) --> abcabcabc
+> string.reverse("A Long Line!") --> !eniL gnoL A
+> string.lower("A Long Line!") --> a long line!
+> string.upper("A Long Line!") --> A LONG LINE!
+```
+
 ## Unicode ##
 
 **utf8:** The function utf8.len returns the number of UTF-8 characters (codepoints) in a given string. utf8.char and utf8.codepoint are the equivalent of string.char and string.byte in the UTF-8 world. Most functions in the utf8 library work with indices in bytes. the function utf8.offset converts a character position to a byte position. The last function in the utf8 library is utf8.codes. It allows us to iterate over the characters in a UTF-8 string. If we want to use character indices, the function utf8.offset converts a character position to a byte position.
