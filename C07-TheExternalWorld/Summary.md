@@ -1,5 +1,9 @@
 # The External World #
 
+## The Simple I/O Model ##
+
+- A call like io.input(filename) opens a stream over the given file in read mode and sets it as the current input stream. From this point on, all input will come from this file, until another call to io.input.
+
 ## The Complete I/O Model ##
 
 - The function open returns a new stream over the file. In case of error, open returns nil, plus an error message and a system-dependent error number.
