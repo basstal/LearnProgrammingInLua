@@ -1,4 +1,4 @@
-# FillingSomeGaps #
+# Filling Some Gaps #
 
 ## Exercise 8.1 ##
 

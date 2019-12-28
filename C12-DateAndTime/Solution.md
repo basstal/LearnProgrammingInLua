@@ -1,4 +1,4 @@
-# DateAndTime #
+# Date And Time #
 
 ## Exercise 12.1 ##
 

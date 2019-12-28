@@ -1,4 +1,4 @@
-# TheExternalWorld #
+# The External World #
 
 ## Exercise 7.1 ##
 

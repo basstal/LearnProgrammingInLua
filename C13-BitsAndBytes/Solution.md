@@ -1,4 +1,4 @@
-# BitsAndBytes #
+# Bits And Bytes #
 
 ## Exercise 13.1 ##
 

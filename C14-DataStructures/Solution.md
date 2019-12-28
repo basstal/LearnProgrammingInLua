@@ -1,4 +1,4 @@
-# DataStructures #
+# Data Structures #
 
 ## Exercise 14.1 ##
 

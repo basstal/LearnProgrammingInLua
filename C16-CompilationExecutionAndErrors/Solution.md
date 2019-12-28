@@ -1,4 +1,4 @@
-# CompilationExecutionAndErrors #
+# Compilation Execution And Errors #
 
 ## Exercise 16.1 ##
 

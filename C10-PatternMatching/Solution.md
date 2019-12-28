@@ -1,4 +1,4 @@
-# PatternMatching #
+# Pattern Matching #
 
 ## Exercise 10.1 ##
 
