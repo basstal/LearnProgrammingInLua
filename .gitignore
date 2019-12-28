@@ -291,3 +291,4 @@ DerivedData/
 ## others
 .vscode
 *.code-workspace
+*.tmp

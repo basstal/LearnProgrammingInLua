@@ -13,16 +13,17 @@
 -- end
 
 
-local TestData = [[
-    a b l1
-    c a l2
-    d c l3
-    f c l4
-    c e l5
-    e d l6
-    q
-]]
-function ReadGraph()
+-- local TestData = [[
+    -- a b 1
+    -- c a 2
+    -- d c 3
+    -- f c 4
+    -- c e 5
+    -- e d 6
+    -- q
+-- ]]
+local R = {}
+function R.ReadGraph()
 
     local graph = {}
 
@@ -35,6 +36,7 @@ function ReadGraph()
         local g = graph[namefrom] or {}
         table.insert(g, arc)
         graph[namefrom] = g
+        graph[nameto] = graph[nameto] or {}
     end
     return graph
 end
@@ -51,4 +53,6 @@ function Test()
     assert(arc.pointsTo == "b")
 end
 
-Test()
+-- Test()
+
+return R

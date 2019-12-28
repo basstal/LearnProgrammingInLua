@@ -110,7 +110,7 @@ Figure 8.3. A strange (and invalid) use of a goto
 
 (Try to reason about the label using the same scoping rules used for local variables.)
 
-[strange_goto](./Resources/strange_goto.lua)
+[StrangeGoto](./Resources/StrangeGoto.lua)
 
 ```markdown
 运行上面的Lua程序得到以下结果：

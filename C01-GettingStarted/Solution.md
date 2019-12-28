@@ -52,4 +52,4 @@ Are the parentheses necessary? Would you recommend their use in that expression?
 
 Write a simple script that prints its own name without knowing it in advance.
 
-[script_name.lua](./Resources/script_name.lua)
+[ScriptName.lua](./Resources/ScriptName.lua)

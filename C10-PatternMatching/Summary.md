@@ -16,7 +16,7 @@
 |%w| alphanumeric characters|
 |%x| hexadecimal digits|
 
-- **magic characters**:``( ) . % + - * ? [ ] ^ $``
+- **magic characters:**``( ) . % + - * ? [ ] ^ $``
 
 |modifiers|meanings|
 |---|---|
