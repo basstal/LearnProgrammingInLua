@@ -1,0 +1,4 @@
+local a = 10;
+if a > 1 then; print(a);
+end;
+local c = 10;
