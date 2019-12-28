@@ -1,4 +1,4 @@
-# PatternMatching #
+# Pattern Matching #
 
 ## Patterns ##
 
