@@ -1,0 +1,8 @@
+To do this traversal, we keep two values: the contents of the current line (variable line), and where we
+are on this line (variable pos). With this data, we can always generate the next word. The main part of the
+iterator function is the call to string.match, which searches for a word in the current line starting at the
+current position. It describes a “word” using the pattern '%w+', which matches one or more alphanumeric
+characters. If it finds a word, it captures and returns the word and the position of the first character after it
+(with an empty capture). The function then updates the current position and returns this word. Otherwise,
+the iterator reads a new line and repeats the search. If there are no more lines, it returns nil to signal the
+end of the iteration.
