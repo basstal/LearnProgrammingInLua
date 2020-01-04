@@ -87,13 +87,13 @@ end
 
 function Test()
     -- ** 先验两个单词的情况
-    io.input("C19-InterludeMarkovChainAlgorithm\\Resources\\Test1")
-    io.output("C19-InterludeMarkovChainAlgorithm\\Resources\\Gen1")
+    io.input("Test1")
+    io.output("Gen1")
     GenMarkovChain(2)
     
     -- ** 再验五个单词的情况
-    io.input("C19-InterludeMarkovChainAlgorithm\\Resources\\Test1")
-    io.output("C19-InterludeMarkovChainAlgorithm\\Resources\\Gen2")
+    io.input("Test1")
+    io.output("Gen2")
     GenMarkovChain(5)
     -- ** 最后验证小于两个单词的情况
     GenMarkovChain(-1)
