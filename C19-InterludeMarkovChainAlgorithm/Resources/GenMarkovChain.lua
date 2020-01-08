@@ -71,18 +71,24 @@ function GenMarkovChain(nPreviousWord)
     for i = 1, nPreviousWord do
         recordWords[i] = NOWORD
     end
+    local randomList = {}
     for i = 1, MAXGEN do
         local list = newChain.statetab[newChain:prefix(table.unpack(recordWords))]
         -- choose a random item from list
         local r = math.random(#list)
+        table.insert(randomList, r)
         local nextword = list[r]
-        if nextword == NOWORD then return end
+        if nextword == NOWORD then 
+            break
+        end
         io.write(nextword, " ")
         table.move(recordWords, 2, #recordWords, 1)
         recordWords[#recordWords] = nextword
         -- w1 = w2; w2 = nextword
     end
-    return C
+    print(#randomList)
+    print(table.concat(randomList, ", "))
+    -- return C
 end
 
 function Test()
@@ -94,7 +100,7 @@ function Test()
     -- ** 再验五个单词的情况
     io.input("Test1")
     io.output("Gen2")
-    GenMarkovChain(5)
+    GenMarkovChain(2)
     -- ** 最后验证小于两个单词的情况
     GenMarkovChain(-1)
 end
