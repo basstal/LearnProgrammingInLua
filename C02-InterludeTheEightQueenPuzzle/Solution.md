@@ -1,4 +1,4 @@
-# Interlude-The Eight Queen Puzzle #
+# Interlude The Eight Queen Puzzle #
 
 ## Exercise 2.1 ##
 
