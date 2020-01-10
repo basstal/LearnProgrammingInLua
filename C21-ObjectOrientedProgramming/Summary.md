@@ -62,3 +62,17 @@ end})
 ## Privacy ##
 
 The basic idea of this alternative design is to represent each object through two tables: one for its state and another for its operations, or its interface. We access the object itself through the second table, that is, through the operations that compose its interface. To avoid unauthorized access, the table representing the state of an object is not kept in a field of the other table; instead, it is kept only in the closure of the methods.
+
+## The Single-Method Approach ##
+
+it is worth remembering iterators like io.lines or string.gmatch. An iterator that keeps state internally is nothing more than a single-method object.
+
+## Dual Representation ##
+
+```lua
+function Account.withdraw (self, v)
+    balance[self] = balance[self] - v
+end
+```
+
+The access balance[self] can be slightly slower than self.balance, because the latter uses a local variable while the first uses an external variable.
