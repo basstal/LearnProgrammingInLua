@@ -141,3 +141,58 @@ print(a) --> 2 (back to the original _ENV)
 ```
 
 ## Environments and Modules ##
+
+We can declare all public functions as global variables and they will go to a separate table automatically. All the module has to do is to assign this table to the _ENV variable.
+
+```lua
+local M = {}
+_ENV = M
+function add (c1, c2)
+    return new(c1.r + c2.r, c1.i + c2.i)
+end
+```
+
+
+```lua
+-- module setup
+local M = {}
+-- Import Section:
+-- declare everything this module needs from outside
+local sqrt = math.sqrt
+local io = io
+-- no more external access after this point
+_ENV = nil
+```
+
+## _ENV and load ##
+
+```lua
+env = {}
+loadfile("config.lua", "t", env)()
+```
+
+we may want to run a chunk several times, each time with a different environment table. In that case, the extra argument to load is not useful. Instead, we have two other options.
+
+The first option is to use the function debug.setupvalue, from the debug library. As its name implies, setupvalue allows us to change any upvalue of a given function.
+
+```lua
+f = load("b = 10; return a")
+env = {a = 20}
+debug.setupvalue(f, 1, env)
+print(f()) --> 20
+print(env.b) --> 10
+```
+
+when a function represents a chunk, Lua assures that it has only one upvalue and that this upvalue is _ENV.
+
+Another option to run a chunk with several different environments is to twist the chunk a little when loading it.
+
+```lua
+prefix = "_ENV = ...;"
+f = loadwithprefix(prefix, io.lines(filename, "*L"))
+...
+env1 = {}
+f(env1)
+env2 = {}
+f(env2)
+```

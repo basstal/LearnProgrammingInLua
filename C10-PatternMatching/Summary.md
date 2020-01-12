@@ -1,5 +1,30 @@
 # Pattern Matching #
 
+## The Pattern-Matching Functions ##
+
+### The function string.find ###
+
+When string.find finds its pattern, it returns two values: the index where the match begins and the index where the match ends.
+
+```lua
+s = "hello world"
+i, j = string.find(s, "hello")
+print(i, j) --> 1 5
+print(string.sub(s, i, j)) --> hello
+print(string.find(s, "world")) --> 7 11
+i, j = string.find(s, "l")
+print(i, j) --> 3 3
+print(string.find(s, "lll")) --> nil
+```
+
+The function string.find has two optional parameters. The third parameter is an index that tells where in the subject string to start the search. The fourth parameter, a Boolean, indicates a plain search. A plain search, as the name implies, does a plain “find substring” search in the subject, ignoring patterns
+
+```lua
+> string.find("a [word]", "[")
+stdin:1: malformed pattern (missing ']')
+> string.find("a [word]", "[", 1, true) --> 3 3
+```
+
 ## Patterns ##
 
 |pattern|meanings|
