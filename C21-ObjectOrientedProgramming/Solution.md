@@ -1,6 +1,6 @@
 # Object-Oriented Programming #
 
-## Exercise 21.1 ## 
+## Exercise 21.1 ##
 
 Implement a class Stack, with methods push, pop, top, and isempty.
 

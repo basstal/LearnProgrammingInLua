@@ -150,6 +150,7 @@ _G["*AA*"] = t
 ```
 
 Another interesting technique allows a program to call a given function every time Lua completes a collection cycle.
+
 ```lua
 do
     local mt = {__gc = function (o)

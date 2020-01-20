@@ -40,7 +40,6 @@ __newindex = function (t, n, v)
 end
 ```
 
-
 ```lua
 local declaredNames = {}
 setmetatable(_G, {
@@ -151,7 +150,6 @@ function add (c1, c2)
     return new(c1.r + c2.r, c1.i + c2.i)
 end
 ```
-
 
 ```lua
 -- module setup

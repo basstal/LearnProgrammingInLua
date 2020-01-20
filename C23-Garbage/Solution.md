@@ -6,24 +6,19 @@ Write an experiment to determine whether Lua actually implements ephemeron table
 
 [EphemeroTables.lua](./Resources/EphemeroTables.lua)
 
-
 ## Exercise 23.2 ##
 
 Consider the first example of the section called “Finalizers”, which creates a table with a finalizer that only prints a message when activated. What happens if the program ends without a collection cycle? What happens if the program calls os.exit? What happens if the program ends with an error?
 
 [TestFinalizers.lua](./Resources/TestFinalizers.lua)
 
-``
-os.exit没有finalizer调用
-``
+``os.exit没有finalizer调用``
 
 ## Exercise 23.3 ##
 
 Imagine you have to implement a memorizing table for a function from strings to strings. Making the table weak will not do the removal of entries, because weak tables do not consider strings as collectable objects. How can you implement memorization in that case?
 
-``
-给每个string映射一个独立的table（弱value类型table），再用table来映射到对应的string（弱key类型table）
-``
+``给每个string映射一个独立的table（弱value类型table），再用table来映射到对应的string（弱key类型table）``
 
 ## Exercise 23.4 ##
 
@@ -47,7 +42,6 @@ print(collectgarbage("count") * 1024, count)
 ```
 
 [FinalizersAndMemory.lua](./Resources/FinalizersAndMemory.lua)
-
 
 ## Exercise 23.5 ##
 

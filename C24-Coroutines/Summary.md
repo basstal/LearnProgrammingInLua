@@ -59,7 +59,7 @@ end)
 print(coroutine.resume(co)) --> true 6 7
 ```
 
-## Who Is the Boss? ##
+## Who Is the Boss ##
 
 ```lua
 function receive (prod)

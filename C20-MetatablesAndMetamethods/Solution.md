@@ -12,14 +12,13 @@ Define a metamethod __len for sets so that #s returns the number of elements in 
 
 [MetamethodSet.lua](./Resources/MetamethodSet.lua)
 
-
 ## Exercise 20.3 ##
 
 An alternative way to implement read-only tables might use a function as the __index metamethod. This alternative makes accesses more expensive, but the creation of read-only tables is cheaper, as all read-only tables can share a single metatable. Rewrite the function readOnly using this approach.
 
 [ReadOnly.lua](./Resources/ReadOnly.lua)
 
-## Exercise 20.4 ## 
+## Exercise 20.4 ##
 
 Proxy tables can represent other kinds of objects besides tables. file as array Write a function fileAsArray that takes the name of a file and returns a proxy to that file, so that after a call t = fileAsArray("myFile"), an access to t[i] returns the i-th byte of that file, and an assignment
 to t[i] updates its i-th byte.

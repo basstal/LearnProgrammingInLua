@@ -32,6 +32,7 @@ __eq (equal to), __lt (less than), and __le (less than or equal to).
 ```markdown
 Lua translates a ~= b to not (a == b), a > b to b < a, and a >= b to b <= a.
 ```
+
 this translation is incorrect when we have a partial order. This means that NaN <= x is always false, but x < NaN is also false.
 
 The equality comparison has some restrictions. If two objects have different basic types, the equality operation results in false, without even calling any metamethod.
