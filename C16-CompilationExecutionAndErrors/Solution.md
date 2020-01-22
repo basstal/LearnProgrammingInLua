@@ -60,6 +60,4 @@ Write a function that, given n, returns a specialized function stringrep_n. Inst
 
 Can you find any value for f such that the call pcall(pcall, f) returns false as its first result? Why is this relevant?
 
-```markdown
-保护调用本身是不会在正确调用的情况下把错误传递到外层，所以外层的保护调用不会出现第一个参数为false的情况
-```
+``保护调用本身是不会在正确调用的情况下把错误传递到外层，所以外层的保护调用不会出现第一个参数为false的情况``

@@ -14,7 +14,6 @@ The function io.read reads strings from the current input stream. Its arguments 
 |"n"| reads a number|
 |num| reads num characters as a string|
 
-
 we can call read with a number n as an argument: in this case, it tries to read n characters from the input stream. If it cannot read any character (end of file), the call returns nil;
 
 ```lua

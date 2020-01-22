@@ -20,8 +20,7 @@ An alternative way to implement read-only tables might use a function as the __i
 
 ## Exercise 20.4 ##
 
-Proxy tables can represent other kinds of objects besides tables. file as array Write a function fileAsArray that takes the name of a file and returns a proxy to that file, so that after a call t = fileAsArray("myFile"), an access to t[i] returns the i-th byte of that file, and an assignment
-to t[i] updates its i-th byte.
+Proxy tables can represent other kinds of objects besides tables. file as array Write a function fileAsArray that takes the name of a file and returns a proxy to that file, so that after a call t = fileAsArray("myFile"), an access to t[i] returns the i-th byte of that file, and an assignment to t[i] updates its i-th byte.
 
 [FileAsArray.lua](./Resources/FileAsArray.lua)
 
