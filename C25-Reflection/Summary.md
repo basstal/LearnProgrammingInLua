@@ -23,6 +23,8 @@ When we call debug.getinfo(foo) for a function foo, it returns a table with some
 
 When we call debug.getinfo(n) for some number n, we get data about the function active at that stack level. A stack level is a number that refers to a particular function that is active at that moment. The function calling getinfo has level one, the function that called it has level two, and so on. (At level zero, we get data about getinfo itself, a C function.)
 
+If n is larger than the number of active functions on the stack, debug.getinfo returns nil.
+
 getinfo has an optional second parameter that selects what information to get.
 
 |option|function|
@@ -62,6 +64,8 @@ foo(10, 20)
 We can also change the values of local variables, with debug.setlocal. Its first two parameters are a stack level and a variable index, like in getlocal. Its third parameter is the new value for the variable. It returns the variable name or nil if the variable index is out of scope.
 
 ### Accessing non-local variables ###
+
+the first argument for getupvalue is not a stack level, but a function (a closure, more precisely). The second argument is the variable index.
 
 ```lua
 function getvarvalue (name, level, isenv)
