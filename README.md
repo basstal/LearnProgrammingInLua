@@ -2,8 +2,10 @@
 
 Programming In Lua 4th Edition
 
+Exercise Records.
+
 练习题记录。
 
-## 进度 ##
+## Progress ##
 
-18/33
+25/33
