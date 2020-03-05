@@ -45,6 +45,7 @@ _ENV = {
     debug = G.debug,
     pairs = G.pairs,
     setmetatable = G.setmetatable,
+    getmetatable = G.getmetatable,
     print = G.print
 }
 
@@ -57,7 +58,19 @@ function Test()
     end
     print("** env ** ")
 
-    print(r.Test1)
+    local mt = getmetatable(r)
+    for k, v in pairs(mt) do
+        print(k, v)
+        if k == "__index" then
+            print("** index **")
+            for ik, iv in pairs(v) do
+                print(ik, iv)
+            end
+        end
+    end
+
 end
 
 Test()
+
+return Getv

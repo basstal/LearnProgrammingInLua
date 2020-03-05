@@ -149,6 +149,20 @@ Lua calls all hooks with a string argument that describes the event that generat
 
 we call debug.sethook with two or three arguments: the first argument is the hook function; To monitor the call, return, and line events, we add their first letters (c, r, or l) into the mask string (the second argument). To monitor the count event, we simply supply a counter as the third argument. To turn off hooks, we call sethook with no arguments.
 
+A useful function to use with hooks is debug.debug. This simple function gives us a prompt that executes arbitrary Lua commands.
+
+```lua
+-- ** debug.debug roughly equivalent implement
+function debug1 ()
+    while true do
+        io.write("debug> ")
+        local line = io.read()
+        if line == "cont" then break end
+        assert(load(line))()
+    end
+end
+```
+
 ## Profiles ##
 
 ```lua
