@@ -1,3 +1,5 @@
+// compile this file with lua source code files
+
 #include <stdio.h>
 #include <string.h>
 #include "lua.h"
