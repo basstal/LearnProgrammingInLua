@@ -8,4 +8,4 @@ Exercise Records.
 
 ## Progress ##
 
-25/33
+27/33
