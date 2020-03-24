@@ -1,5 +1,4 @@
 // compile this file with lua source code files
-//1
 
 #include <stdio.h>
 #include <string.h>
