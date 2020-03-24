@@ -37,3 +37,18 @@ Improve the previous exercise to handle updates, too.
 Implement some of the suggested improvements for the basic profiler that we developed in the section called “Profiles”.
 
 [Profiles.lua](./Resources/Profiles.lua)
+
+## Exercise 25.7 ##
+
+Write a library for breakpoints. It should offer at least two functions:
+
+```lua
+setbreakpoint(function, line) --> returns handle
+removebreakpoint(handle)
+```
+
+We specify a breakpoint by a function and a line inside that function. When the program hits a breakpoint, the library should call debug.debug. (Hint: for a basic implementation, use a line hook that checks whether it is in a breakpoint; to improve performance, use a call hook to trace program execution and only turn on the line hook when the program is running the target function.)
+
+## Exercise 25.8 ##
+
+One problem with the sandbox in Figure 25.6, “Using hooks to bar calls to unauthorized functions” is that sandboxed code cannot call its own functions. How can you correct this problem?

@@ -52,7 +52,6 @@ the percent sign works as an escape for these magic characters. So, '%?' matches
 |-| 0 or more lazy repetitions|
 |?| optional (0 or 1 occurrence)|
 
-
 ## Captures ##
 
 When a pattern has captures, the function string.match returns each captured value as a separate result; in other words, it breaks a string into its captured parts.
