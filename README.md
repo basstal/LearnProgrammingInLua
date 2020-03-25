@@ -13,9 +13,15 @@ Exercise Records.
 ## Content Construct ##
 
 Exercise: E?(number)-fileName
+
 Summary: Summary.md
+
 Solution: Solution.md
+
 Exernal_Resource
+
 Resource
+
 Chapter: C?-title
+
 Addition: A?
