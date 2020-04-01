@@ -112,3 +112,50 @@ The C API offers two similar places to store non-local data: the registry and up
 
 ### The registry ###
 
+The registry is always located at the pseudo-index LUA_REGISTRYINDEX
+
+to get a value stored with key "Key" in the registry, we can use the following call
+
+``lua_getfield(L, LUA_REGISTRYINDEX, "Key");``
+
+We should never use our own numbers as keys in the registry, because Lua reserves numeric keys for its reference system.
+
+``int ref = luaL_ref(L, LUA_REGISTRYINDEX);``
+
+Lua does not even offer pointers to other objects, such as tables or functions. So, we cannot refer to Lua objects through pointers. Instead, when we need such pointers, we create a reference and store it in C.
+
+``lua_rawgeti(L, LUA_REGISTRYINDEX, ref);``
+
+``luaL_unref(L, LUA_REGISTRYINDEX, ref);``
+
+When we create a Lua state, the registry comes with two predefined references
+
+LUA_RIDX_MAINTHREAD keeps the Lua state itself, which is also its main thread.
+
+LUA_RIDX_GLOBALS keeps the global environment.
+
+```cpp
+/* variable with a unique address */
+static char Key = 'k';
+/* store a string */
+lua_pushlightuserdata(L, (void *)&Key); /* push address */
+lua_pushstring(L, myStr); /* push value */
+lua_settable(L, LUA_REGISTRYINDEX); /* registry[&Key] = myStr */
+/* retrieve a string */
+lua_pushlightuserdata(L, (void *)&Key); /* push address */
+lua_gettable(L, LUA_REGISTRYINDEX); /* retrieve value */
+myStr = lua_tostring(L, -1); /* convert to string */
+```
+
+```cpp
+static char Key = 'k';
+/* store a string */
+lua_pushstring(L, myStr);
+lua_rawsetp(L, LUA_REGISTRYINDEX, (void *)&Key);
+/* retrieve a string */
+lua_rawgetp(L, LUA_REGISTRYINDEX, (void *)&Key);
+myStr = lua_tostring(L, -1);
+```
+
+### Upvalues ###
+
