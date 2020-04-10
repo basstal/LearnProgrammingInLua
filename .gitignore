@@ -292,3 +292,6 @@ DerivedData/
 .vscode
 *.code-workspace
 *.tmp
+*.plist
+lua
+Test

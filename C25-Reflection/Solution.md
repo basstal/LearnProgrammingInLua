@@ -5,6 +5,7 @@
 Adapt getvarvalue (Figure 25.1, “Getting the value of a variable”) to work with different coroutines (like the functions from the debug library).
 
 ``todo``
+
 [Getvarvalue.lua](./Resources/Getvarvalue.lua)
 
 ## Exercise 25.2 ##
@@ -24,6 +25,7 @@ Write a version of getvarvalue (Figure 25.1, “Getting the value of a variable�
 Write an improved version of debug.debug that runs the given commands as if they were in the lexical scope of the calling function. (Hint: run the commands in an empty environment and use the __index metamethod attached to the function getvarvalue to do all accesses to variables.)
 
 ``todo``
+
 [DebugImplement.lua](./Resources/DebugImplement.lua)
 
 ## Exercise 25.5 ##
