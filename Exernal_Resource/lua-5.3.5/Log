@@ -1,0 +1,36 @@
+LUAMOD_API  ->
+LUA_API     -> lua_xxxx
+LUALIB_API  -> luaL_xxxx
+
+luaB_xxxx -> lbaselib.c
+
+
+static int luaB_print (lua_State *L) {
+  int n = lua_gettop(L);  /* number of arguments */
+  int i;
+  lua_getglobal(L, "tostring");
+  for (i=1; i<=n; i++) {
+    const char *s;
+    size_t l;
+    lua_pushvalue(L, -1);  /* function to be called */
+    lua_pushvalue(L, i);   /* value to print */
+    lua_call(L, 1, 1);
+    s = lua_tolstring(L, -1, &l);  /* get result */
+    if (s == NULL)
+      return luaL_error(L, "'tostring' must return a string to 'print'");
+    if (i>1) lua_writestring("\t", 1);
+    lua_writestring(s, l);
+    lua_pop(L, 1);  /* pop result */
+  }
+  lua_writeline();
+  return 0;
+}
+
+应该在调用luaB_print 安排好所有需要打印的参数在stack上从下到上的顺序（暂时没找到哪里给安排的）
+获得L stack中最上层的n 代表参数数量， 获得tostring【luaB_tostring】方法
+lua_writestring -> fwrite stdout
+lua_writestring 当index >1 时自动在输出内容中插入制表符
+lua_pop 将tostring的字符串结果从stack剔除掉
+lua_writeline 输出换行符并且flush
+
+luaL_openlibs -> 加载lua的标准库函数 【具体见linit.c】

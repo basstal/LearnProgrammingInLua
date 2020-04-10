@@ -1,6 +1,7 @@
 #include "lauxlib.h"
 #include "lstate.h"
 #include "lapi.h"
+#include "lualib.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -15,8 +16,8 @@ static void fatal(const char* message)
 int main()
 {
     lua_State *L = luaL_newstate();
+    luaL_openlibs(L);
     const char *fileName = "./C33-Threads_and_States/Resources/Test.lua";
-    
     if (luaL_loadfile(L, fileName) || lua_pcall(L, 0, 0, 0))
     {
         fatal(lua_tostring(L,-1));

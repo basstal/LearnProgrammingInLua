@@ -67,6 +67,8 @@ void setcolor (lua_State *L, struct ColorTable *ct) {
 }
 ```
 
+The function lua_newtable creates an empty table and pushes it on the stack; the three calls to setcolorfield set the table fields; finally, lua_setglobal pops the table and sets it as the value of the global with the given name.
+
 ```cpp
 lua_getglobal(L, "background");
 if (lua_isstring(L, -1)) { /* value is a string? */

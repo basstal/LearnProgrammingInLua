@@ -11,7 +11,20 @@ void lua_geti (lua_State *L, int index, int key);
 void lua_seti (lua_State *L, int index, int key);
 ```
 
+The call lua_geti(L, t, key) is equivalent to the following sequence when t is positive (otherwise, we must compensate for the new item on the stack)
+
+```cpp
+lua_pushnumber(L, key);
+lua_gettable(L, t);
+```
+
 it involves two indices: index refers to where the table is on the stack; key refers to where the element is in the table. The call lua_geti(L, t, key) is equivalent to the following sequence when t is positive
+
+```cpp
+lua_pushnumber(L, key);
+lua_insert(L, -2); /* put 'key' below previous value */
+lua_settable(L, t);
+```
 
 ```cpp
 int l_map (lua_State *L) {
@@ -108,7 +121,7 @@ although we can use the stack for other tasks while using a buffer, the push/pop
 
 ## Storing State in C Functions ##
 
-The C API offers two similar places to store non-local data: the registry and upvalues.
+A Lua function has two places to store non-local data: global variables and non-local variables. The C API offers two similar places to store non-local data: the registry and upvalues.
 
 ### The registry ###
 
@@ -118,7 +131,7 @@ to get a value stored with key "Key" in the registry, we can use the following c
 
 ``lua_getfield(L, LUA_REGISTRYINDEX, "Key");``
 
-We should never use our own numbers as keys in the registry, because Lua reserves numeric keys for its reference system.
+We should never use our own numbers as keys in the registry, because Lua reserves numeric keys for its reference system. This system comprises a pair of functions in the auxiliary library that allow us to store values in a table without worrying about how to create unique keys.
 
 ``int ref = luaL_ref(L, LUA_REGISTRYINDEX);``
 
@@ -130,9 +143,17 @@ Lua does not even offer pointers to other objects, such as tables or functions. 
 
 When we create a Lua state, the registry comes with two predefined references
 
+Whenever we call luaL_ref for a nil value, it does not create a new reference, but instead returns the constant reference LUA_REFNIL.
+
+``luaL_unref(L, LUA_REGISTRYINDEX, LUA_REFNIL); // no effect``
+
+``lua_rawgeti(L, LUA_REGISTRYINDEX, LUA_REFNIL); // pushes a nil``
+
 LUA_RIDX_MAINTHREAD keeps the Lua state itself, which is also its main thread.
 
 LUA_RIDX_GLOBALS keeps the global environment.
+
+Another safe way to create unique keys in the registry is to use as key the address of a static variable in our code: The C link editor ensures that this key is unique across all loaded libraries. To use this option, we need the function lua_pushlightuserdata, which pushes on the stack a value representing a C pointer.
 
 ```cpp
 /* variable with a unique address */
@@ -146,6 +167,8 @@ lua_pushlightuserdata(L, (void *)&Key); /* push address */
 lua_gettable(L, LUA_REGISTRYINDEX); /* retrieve value */
 myStr = lua_tostring(L, -1); /* convert to string */
 ```
+
+To simplify the use of variable addresses as unique keys, Lua 5.2 introduced two new functions: lua_rawgetp and lua_rawsetp. They are similar to lua_rawgeti and lua_rawseti, but they use C pointers (translated to light userdata) as keys.
 
 ```cpp
 static char Key = 'k';
