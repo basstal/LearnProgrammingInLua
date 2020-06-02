@@ -1,5 +1,19 @@
 # Getting Started #
 
+```lua
+-- defines a factorial function
+function fact (n)
+    if n == 0 then
+        return 1
+    else
+        return n * fact(n - 1)
+    end
+end
+print("enter a number:")
+a = io.read("*n") -- reads a number
+print(fact(a))
+```
+
 ## Chunks ##
 
 **dofile:** The function dofile is useful also when we are testing a piece of code.
