@@ -49,7 +49,3 @@ nil, Boolean, number, string, userdata, function, thread, and table.
 ```
 
 Another useful idiom is ((a and b) or c) or simply (a and b or c) (given that and has a higher precedence than or). It is equivalent to the C expression a ? b : c, provided that b is not false. For instance, we can select the maximum of two numbers x and y with the expression (x > y) and x or y. When x > y, the first expression of the and is true, so the and results in its second operand (x), which is always true (because it is a number), and then the or expression results in the value of its first operand, x. When x > y is false, the and expression is false and so the or results in its second operand, y.
-
-## The Stand-Alone Interpreter ##
-
-(a and b or c) (given that and has a higher precedence than or). It is equivalent to the C expression a ? b : c, provided that b is not false.
